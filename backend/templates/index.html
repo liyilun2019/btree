@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+<title>b+tree</title>
+</head>
+<body>
+    <div style="width:100%;text-align:center">
+    <form action="/search" method="get" >
+        <input type="text" name="key">
+        <input type="submit" value="搜索">
+    </form>
+    {% for obj in objlist %}
+        <h2>标题：{{obj.title}}</h2>
+        <h3>副标题:{{obj.subtitle}}</h3>
+        <img src="{{obj.image}}"/>
+        <div>作者:{{obj.writer}}</div>
+        <div>译者:{{obj.translater}}</div>
+        <div>出版社{{obj.publishier}}</div>
+        <div>出版年:{{obj.date}}</div>
+        <div>页数:{{obj.pages}}</div>
+        <div>定价:{{obj.price}}</div>
+        <div>帧装:{{obj.wrap}}</div>
+        <div>丛书:{{obj.other}}</div>
+        <div>ISBN:{{obj.isbn}}</div>
+    {% endfor %}
+    {% if objlist_other%}
+    <h1>其他相关书籍</h1>
+    {% endif %}
+    {% for obj in objlist_other %}
+        <h2>标题：{{obj.title}}</h2>
+        <h3>副标题:{{obj.subtitle}}</h3>
+        <img src="{{obj.image}}"/>
+        <div>作者:{{obj.writer}}</div>
+        <div>译者:{{obj.translater}}</div>
+        <div>出版社{{obj.publishier}}</div>
+        <div>出版年:{{obj.date}}</div>
+        <div>页数:{{obj.pages}}</div>
+        <div>定价:{{obj.price}}</div>
+        <div>帧装:{{obj.wrap}}</div>
+        <div>丛书:{{obj.other}}</div>
+        <div>ISBN:{{obj.isbn}}</div>
+    {% endfor %}
+    </div>
+</body>
+</html>
